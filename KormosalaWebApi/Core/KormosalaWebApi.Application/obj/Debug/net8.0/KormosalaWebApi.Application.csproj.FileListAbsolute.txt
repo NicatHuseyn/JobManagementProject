@@ -1,0 +1,16 @@
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Application\bin\Debug\net8.0\KormosalaWebApi.Application.deps.json
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Application\bin\Debug\net8.0\KormosalaWebApi.Application.dll
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Application\bin\Debug\net8.0\KormosalaWebApi.Application.pdb
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Application\bin\Debug\net8.0\KormosalaWebApi.Domain.dll
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Application\bin\Debug\net8.0\KormosalaWebApi.Domain.pdb
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Application\obj\Debug\net8.0\KormosalaWebApi.Application.csproj.AssemblyReference.cache
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Application\obj\Debug\net8.0\KormosalaWebApi.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Application\obj\Debug\net8.0\KormosalaWebApi.Application.AssemblyInfoInputs.cache
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Application\obj\Debug\net8.0\KormosalaWebApi.Application.AssemblyInfo.cs
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Application\obj\Debug\net8.0\KormosalaWebApi.Application.csproj.CoreCompileInputs.cache
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Application\obj\Debug\net8.0\KormosalaWebApi.Application.sourcelink.json
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Application\obj\Debug\net8.0\KormosalaWebApi.Application.csproj.CopyComplete
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Application\obj\Debug\net8.0\KormosalaWebApi.Application.dll
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Application\obj\Debug\net8.0\refint\KormosalaWebApi.Application.dll
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Application\obj\Debug\net8.0\KormosalaWebApi.Application.pdb
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Application\obj\Debug\net8.0\ref\KormosalaWebApi.Application.dll

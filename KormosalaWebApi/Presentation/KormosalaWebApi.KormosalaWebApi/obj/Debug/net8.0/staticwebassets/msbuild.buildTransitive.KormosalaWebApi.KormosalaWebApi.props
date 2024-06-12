@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\KormosalaWebApi.KormosalaWebApi.props" />
+</Project>

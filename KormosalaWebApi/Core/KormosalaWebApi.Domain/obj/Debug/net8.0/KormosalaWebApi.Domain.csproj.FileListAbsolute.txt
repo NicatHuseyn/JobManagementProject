@@ -1,0 +1,12 @@
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Domain\bin\Debug\net8.0\KormosalaWebApi.Domain.deps.json
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Domain\bin\Debug\net8.0\KormosalaWebApi.Domain.dll
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Domain\bin\Debug\net8.0\KormosalaWebApi.Domain.pdb
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Domain\obj\Debug\net8.0\KormosalaWebApi.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Domain\obj\Debug\net8.0\KormosalaWebApi.Domain.AssemblyInfoInputs.cache
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Domain\obj\Debug\net8.0\KormosalaWebApi.Domain.AssemblyInfo.cs
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Domain\obj\Debug\net8.0\KormosalaWebApi.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Domain\obj\Debug\net8.0\KormosalaWebApi.Domain.sourcelink.json
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Domain\obj\Debug\net8.0\KormosalaWebApi.Domain.dll
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Domain\obj\Debug\net8.0\refint\KormosalaWebApi.Domain.dll
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Domain\obj\Debug\net8.0\KormosalaWebApi.Domain.pdb
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Domain\obj\Debug\net8.0\ref\KormosalaWebApi.Domain.dll
