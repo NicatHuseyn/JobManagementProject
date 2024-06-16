@@ -24,7 +24,6 @@ namespace KormosalaWebApi.Application.Featuers.Commands.IndustryCommands.CreateI
                 await _repository.AddAsync(new Domain.Entities.Industry
                 {
                     Name = request.Name,
-                    Icon = request.Icon
                 });
 
                 await _repository.SaveAsync();

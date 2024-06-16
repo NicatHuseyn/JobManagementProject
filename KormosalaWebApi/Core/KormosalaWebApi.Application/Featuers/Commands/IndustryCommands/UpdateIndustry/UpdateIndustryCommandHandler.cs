@@ -33,7 +33,6 @@ namespace KormosalaWebApi.Application.Featuers.Commands.IndustryCommands.UpdateI
             try
             {
                 industry.Name = request.Name;
-                industry.Icon= request.Icon;
 
                 await _repository.SaveAsync();
 

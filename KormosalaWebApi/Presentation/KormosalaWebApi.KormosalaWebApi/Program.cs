@@ -1,5 +1,6 @@
 
 using KormosalaWebApi.Application;
+using KormosalaWebApi.Infrastructure;
 using KormosalaWebApi.Persistence;
 
 namespace KormosalaWebApi.KormosalaWebApi
@@ -11,8 +12,19 @@ namespace KormosalaWebApi.KormosalaWebApi
             var builder = WebApplication.CreateBuilder(args);
 
             // Add Services
+            #region Custom Services
             builder.Services.AddPersistenceService();
             builder.Services.AddApplicationService();
+            builder.Services.AddInfrastructureService();
+            #endregion
+
+
+            #region Add Cors
+            builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
+            {
+                policy.WithOrigins("http://localhost:5173", "https://localhost:5173").AllowAnyHeader().AllowAnyMethod();
+            }));
+            #endregion
 
             // Add services to the container.
 
@@ -31,6 +43,9 @@ namespace KormosalaWebApi.KormosalaWebApi
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+
+            app.UseCors();
 
             app.UseHttpsRedirection();
 

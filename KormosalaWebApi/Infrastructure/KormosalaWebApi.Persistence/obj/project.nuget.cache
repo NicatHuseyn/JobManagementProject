@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vHPNbf5kgCrCaPNmeLdVuOBASt0t6Y8DMtTTzDjfSbSR745BtfzzOUDOkZP/zMlBk5nm765GTslaHsBighWBWg==",
+  "dgSpecHash": "9Bi6xDOGPJOWiwK9PNr2n9DQ0omjZ1aTWegGt62/RJCYSWasUDioFLZRsqWzGFjSE3rMm+/j72A+KZ0/tVEQZg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Nicat\\OneDrive\\Рабочий стол\\FinalProjectBackend\\KormosalaWebApi\\Infrastructure\\KormosalaWebApi.Persistence\\KormosalaWebApi.Persistence.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\Nicat\\.nuget\\packages\\mediatr\\12.3.0\\mediatr.12.3.0.nupkg.sha512",
     "C:\\Users\\Nicat\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\Nicat\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.1.0\\mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",
+    "C:\\Users\\Nicat\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\Nicat\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\Nicat\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
     "C:\\Users\\Nicat\\.nuget\\packages\\microsoft.codeanalysis.common\\4.5.0\\microsoft.codeanalysis.common.4.5.0.nupkg.sha512",

@@ -1,7 +1,9 @@
 ﻿using KormosalaWebApi.Application.Repositories.BlogRepository;
+using KormosalaWebApi.Application.Repositories.CategoryRepository;
 using KormosalaWebApi.Application.Repositories.IndustryRepository;
 using KormosalaWebApi.Persistence.Contexts;
 using KormosalaWebApi.Persistence.Repositories.BlogRepository;
+using KormosalaWebApi.Persistence.Repositories.CategoryRepository;
 using KormosalaWebApi.Persistence.Repositories.IndustryRepository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,6 +22,7 @@ namespace KormosalaWebApi.Persistence
             services.AddDbContext<KormosalaDbContext>(options=>options.UseSqlServer(Configuration.ConnectionString));
 
             services.AddScoped<IBlogRepository,BlogRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IIndustryRepository,IndustryRepository>();
         }
     }

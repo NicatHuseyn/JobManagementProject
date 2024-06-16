@@ -26,7 +26,6 @@ namespace KormosalaWebApi.Application.Featuers.Queries.IndustryQueries.GetAllInd
             {
                 Id = x.Id,
                 Name = x.Name,
-                Icon = x.Icon,
                 CreateDate = x.CreateDate,
                 UpdateDate = x.UpdateDate,
 

@@ -33,6 +33,7 @@ namespace KormosalaWebApi.Application.Featuers.Commands.IndustryCommands.RemoveI
 
             try
             {
+
                 _repository.Remove(industry);
                 await _repository.SaveAsync();
 

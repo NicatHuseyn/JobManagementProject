@@ -10,6 +10,5 @@ namespace KormosalaWebApi.Application.Featuers.Commands.IndustryCommands.CreateI
     public class CreateIndustryCommandRequest:IRequest<CreateIndustryCommandResponse>
     {
         public string Name { get; set; }
-        public string Icon { get; set; }
     }
 }

@@ -35,7 +35,6 @@ namespace KormosalaWebApi.Application.Featuers.Queries.IndustryQueries.GetByIdIn
                 return new GetByIdIndustryQueryResponse
                 {
                     Id = industry.Id,
-                    Icon = industry.Icon,
                     Name = industry.Name,
                     CreateDate = industry.CreateDate,
                     UpdateDate = industry.UpdateDate,

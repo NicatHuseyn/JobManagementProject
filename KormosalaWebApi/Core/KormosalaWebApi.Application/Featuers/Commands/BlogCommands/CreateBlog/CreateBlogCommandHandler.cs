@@ -25,7 +25,7 @@ namespace KormosalaWebApi.Application.Featuers.Commands.BlogCommands.CreateBlog
                 {
                     Text = request.Text,
                     Image = request.Image,
-                    Title = request.Title,
+                    Title = request.Title
                 });
 
                 await _repository.SaveAsync();

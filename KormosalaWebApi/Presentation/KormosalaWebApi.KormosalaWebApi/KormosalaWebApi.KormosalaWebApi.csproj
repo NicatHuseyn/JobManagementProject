@@ -23,4 +23,8 @@
     <ProjectReference Include="..\..\Infrastructure\KormosalaWebApi.Persistence\KormosalaWebApi.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>

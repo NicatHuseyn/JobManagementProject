@@ -37,6 +37,7 @@ namespace KormosalaWebApi.Application.Featuers.Commands.BlogCommands.UpdateBlog
                 blog.Image = request.Image;
 
                 _repository.Update(blog);
+                await _repository.SaveAsync();
 
                 return new UpdateBlogCommandResponse { Success = true, Message = "Blog Update Successfully" };
             }

@@ -42,13 +42,13 @@ namespace KormosalaWebApi.Persistence.Repositories
 
         public bool Remove(T model)
         {
-            EntityEntry<T> entry =  Table.Remove(model);
+            EntityEntry<T> entry = Table.Remove(model);
             return entry.State == EntityState.Deleted;
         }
 
         public async Task<bool> RemoveAsync(int id)
         {
-            return Remove(await Table.FindAsync(id));
+            return Remove(await Table.FirstOrDefaultAsync(x=>x.Id == id));
         }
 
         public bool RemoveRange(List<T> models)

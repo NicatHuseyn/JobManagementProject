@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\KormosalaWebApi.Application\KormosalaWebApi.Application.csproj" />
+    <ProjectReference Include="..\..\Core\KormosalaWebApi.Domain\KormosalaWebApi.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KormosalaWebApi.Persistence.Migrations
 {
     [DbContext(typeof(KormosalaDbContext))]
-    [Migration("20240612092051_mig_1")]
+    [Migration("20240616163644_mig_1")]
     partial class mig_1
     {
         /// <inheritdoc />
@@ -47,9 +47,6 @@ namespace KormosalaWebApi.Persistence.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");

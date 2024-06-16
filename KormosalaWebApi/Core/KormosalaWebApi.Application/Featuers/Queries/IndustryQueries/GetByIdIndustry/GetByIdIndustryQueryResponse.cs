@@ -10,7 +10,6 @@ namespace KormosalaWebApi.Application.Featuers.Queries.IndustryQueries.GetByIdIn
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Icon { get; set; }
         public DateTime CreateDate { get; set; }
         public DateTime UpdateDate { get; set; }
 
