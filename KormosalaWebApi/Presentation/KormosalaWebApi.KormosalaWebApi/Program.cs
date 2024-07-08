@@ -1,7 +1,10 @@
 
+using FluentValidation.AspNetCore;
 using KormosalaWebApi.Application;
+using KormosalaWebApi.Application.Featuers.Commands.IndustryCommands.CreateIndustry;
 using KormosalaWebApi.Infrastructure;
 using KormosalaWebApi.Persistence;
+using System.Reflection;
 
 namespace KormosalaWebApi.KormosalaWebApi
 {
@@ -22,13 +25,19 @@ namespace KormosalaWebApi.KormosalaWebApi
             #region Add Cors
             builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
             {
-                policy.WithOrigins("http://localhost:5173", "https://localhost:5173").AllowAnyHeader().AllowAnyMethod();
+                policy.WithOrigins("http://localhost:5174", "http://localhost:5174", "http://localhost:5173", "http://localhost:5173").AllowAnyHeader().AllowAnyMethod();
             }));
             #endregion
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers().AddFluentValidation(fv =>
+            {
+                fv.ImplicitlyValidateChildProperties = true;
+                fv.ImplicitlyValidateRootCollectionElements = true;
+                fv.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+                fv.RegisterValidatorsFromAssemblyContaining<CreateIndustryCommandRequest>();
+            });
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -44,6 +53,7 @@ namespace KormosalaWebApi.KormosalaWebApi
                 app.UseSwaggerUI();
             }
 
+            //app.UseStaticFiles();
 
             app.UseCors();
 

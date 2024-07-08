@@ -37,7 +37,7 @@ namespace KormosalaWebApi.Application.Featuers.Queries.CategoryQueries.GetByIdCa
                 {
                     Id = category.Id,
                     Name = category.Name,
-                    Icon = category.Icon,
+                    Description = category.Description,
                     CreateDate = category.CreateDate,
                     UpdateDate = category.UpdateDate,
                     

@@ -10,12 +10,7 @@ namespace KormosalaWebApi.Domain.Entities
     public class Contact:BaseEntity
     {
         public string FullName { get; set; }
-        public string EmailAddress { get; set; }
-        public string Message { get; set; }
-        public string ContactInformation { get; set; }
-        public string Address { get; set; }
+        public string UserMessage { get; set; }
         public string Email { get; set; }
-        public string PhoneNumber { get; set; }
-
     }
 }

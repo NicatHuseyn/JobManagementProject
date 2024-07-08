@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "4W/QTO6peeu0IARE2IsrdDGmZ/kfj7JWrwV1XvJGkG4QV0aT1SvpWmyXTre2lk/uD0RhSzEYdFJ5oTIcex7m7Q==",
+  "dgSpecHash": "2/SiMtZr2U5dhzx6ogbKdP1+2rg20nQjllvUXFLvy2KK7x8//2B59say2vg3HtE+BHYFh/YA9ekdUqAXDkkIVA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Nicat\\OneDrive\\Рабочий стол\\FinalProjectBackend\\KormosalaWebApi\\Core\\KormosalaWebApi.Application\\KormosalaWebApi.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Nicat\\.nuget\\packages\\fluentvalidation\\11.9.2\\fluentvalidation.11.9.2.nupkg.sha512",
+    "C:\\Users\\Nicat\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\Nicat\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.9.2\\fluentvalidation.dependencyinjectionextensions.11.9.2.nupkg.sha512",
     "C:\\Users\\Nicat\\.nuget\\packages\\mediatr\\12.3.0\\mediatr.12.3.0.nupkg.sha512",
     "C:\\Users\\Nicat\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\Nicat\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.1.0\\mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",

@@ -3,6 +3,8 @@ using KormosalaWebApi.Application.Featuers.Commands.CategoryCommands.RemoveCateg
 using KormosalaWebApi.Application.Featuers.Commands.CategoryCommands.UpdateCategory;
 using KormosalaWebApi.Application.Featuers.Queries.CategoryQueries.GetAllCategory;
 using KormosalaWebApi.Application.Featuers.Queries.CategoryQueries.GetByIdCategory;
+using KormosalaWebApi.Application.Featuers.Queries.CategoryQueries.GetCategoryWithJobs;
+using KormosalaWebApi.Application.Interfaces.CategoryInterfaces;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,10 +16,12 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
     public class CategoriesController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly ICategoryWithJobs _categoryWithJobs;
 
-        public CategoriesController(IMediator mediator)
+        public CategoriesController(IMediator mediator, ICategoryWithJobs categoryWithJobs)
         {
             _mediator = mediator;
+            _categoryWithJobs = categoryWithJobs;
         }
 
         [HttpGet]
@@ -143,6 +147,14 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
             {
                 return StatusCode(500, ex.Message);
             }
+        }
+
+        [HttpGet]
+        [Route("GetCategoryWithJobs")]
+        public async Task<IActionResult> GetCategoryWithJobs([FromQuery]GetCategoryWithJobsQueryRequest request)
+        {
+            var responses = await _mediator.Send(request);
+            return Ok(responses);
         }
     }
 }

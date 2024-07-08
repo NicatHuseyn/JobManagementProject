@@ -26,7 +26,7 @@ namespace KormosalaWebApi.Application.Featuers.Queries.CategoryQueries.GetAllCat
             {
                 Id = x.Id,
                 Name = x.Name,
-                Icon = x.Icon,
+                Description = x.Description,
                 CreateDate = x.CreateDate,
                 UpdateDate = x.UpdateDate,
 

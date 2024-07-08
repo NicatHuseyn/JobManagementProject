@@ -34,7 +34,7 @@ namespace KormosalaWebApi.Application.Featuers.Commands.CategoryCommands.UpdateC
             try
             {
                 category.Name = request.Name;
-                category.Icon = request.Icon;
+                category.Description = request.Description;
                 _repository.Update(category);
                 await _repository.SaveAsync();
 

@@ -28,21 +28,14 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            try
-            {
-                var responses = await _mediator.Send(request);
-                if (responses.Count == 0)
-                {
-                    return Ok(new { Data = "Blogs is empty"});
-                }
+            var responses = await _mediator.Send(request);
 
-                return Ok(new { Data = responses});
-            }
-            catch (Exception ex)
+            if (responses.Count == 0)
             {
-                return StatusCode(500, ex.Message);
+                return Ok(new { Message = "Industries is empty" });
             }
 
+            return Ok(responses);
         }
 
         [HttpGet("{Id}")]
@@ -83,7 +76,6 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
             try
             {
                 var response = await _mediator.Send(request);
-                var r = response.Success;
 
                 if (response.Success)
                 {
@@ -126,6 +118,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
 
         [HttpDelete("{Id}")]
         public async Task<IActionResult> RemoveData([FromRoute] RemoveBlogCommandRequest request)

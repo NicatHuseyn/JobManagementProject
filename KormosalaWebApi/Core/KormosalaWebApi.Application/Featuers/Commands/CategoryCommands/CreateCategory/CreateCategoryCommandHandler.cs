@@ -24,7 +24,7 @@ namespace KormosalaWebApi.Application.Featuers.Commands.CategoryCommands.CreateC
                 await _repository.AddAsync(new Domain.Entities.Category
                 {
                     Name = request.Name,
-                    Icon = request.Icon
+                    Description = request.Description
                 });
 
                 await _repository.SaveAsync();

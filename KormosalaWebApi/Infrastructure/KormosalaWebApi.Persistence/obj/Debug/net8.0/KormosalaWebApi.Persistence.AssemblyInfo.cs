@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KormosalaWebApi.Persistence")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3490deba44c73e9e160ad8f96f03b9e03c0ca105")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8318f4bd07c1455ac5ecf000623f8c7c3a11f67d")]
 [assembly: System.Reflection.AssemblyProductAttribute("KormosalaWebApi.Persistence")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KormosalaWebApi.Persistence")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

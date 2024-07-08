@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using KormosalaWebApi.Application.Services.FileService;
+using KormosalaWebApi.Infrastructure.Services.FileService;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
@@ -13,6 +15,7 @@ namespace KormosalaWebApi.Infrastructure
     {
         public static void AddInfrastructureService(this IServiceCollection services)
         {
+            services.AddScoped<IFileService, FileService>();
         }
     }
 }

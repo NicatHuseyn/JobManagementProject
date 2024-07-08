@@ -10,7 +10,7 @@ namespace KormosalaWebApi.Domain.Entities
     public class Category:BaseEntity
     {
         public string Name { get; set; }
-        public string Icon { get; set; }
+        public string Description { get; set; }
 
         public ICollection<Job> Jobs { get; set; }
         public ICollection<Blog> Blogs { get; set; }

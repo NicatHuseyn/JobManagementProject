@@ -10,6 +10,6 @@ namespace KormosalaWebApi.Application.Featuers.Commands.CategoryCommands.CreateC
     public class CreateCategoryCommandRequest:IRequest<CreateCategoryCommandResponse>
     {
         public string Name { get; set; }
-        public string Icon { get; set; }
+        public string Description { get; set; }
     }
 }

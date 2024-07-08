@@ -8,14 +8,6 @@ using System.Threading.Tasks;
 
 namespace KormosalaWebApi.Domain.Entities
 {
-
-    public enum JobType
-    {
-        FullTime,
-        PartTime,
-        Internship,
-        Freelance
-    }
     
     public class Job:BaseEntity
     {
@@ -27,7 +19,7 @@ namespace KormosalaWebApi.Domain.Entities
         public bool isNew { get; set; }
         public int ViewCount { get; set; }
 
-        public JobType JobType { get; set; }
+        public string JobType { get; set; }
 
         public Category Category { get; set; }
         public int CategoryId { get; set; }

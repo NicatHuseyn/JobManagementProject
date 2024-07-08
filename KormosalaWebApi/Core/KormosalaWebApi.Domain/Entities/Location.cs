@@ -10,7 +10,7 @@ namespace KormosalaWebApi.Domain.Entities
     public class Location:BaseEntity
     {
         public string AddressName { get; set; }
-        public Company Company { get; set; }
         public int CompanyId { get; set; }
+        public Company Company { get; set; }
     }
 }

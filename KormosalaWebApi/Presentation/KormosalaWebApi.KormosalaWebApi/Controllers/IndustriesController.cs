@@ -4,7 +4,6 @@ using KormosalaWebApi.Application.Featuers.Commands.IndustryCommands.UpdateIndus
 using KormosalaWebApi.Application.Featuers.Queries.IndustryQueries.GetAllIndustry;
 using KormosalaWebApi.Application.Featuers.Queries.IndustryQueries.GetByIdIndustry;
 using KormosalaWebApi.Application.Repositories.IndustryRepository;
-using KormosalaWebApi.KormosalaWebApi.Models;
 using MediatR;
 using Microsoft.AspNetCore.DataProtection.KeyManagement.Internal;
 using Microsoft.AspNetCore.Http;
