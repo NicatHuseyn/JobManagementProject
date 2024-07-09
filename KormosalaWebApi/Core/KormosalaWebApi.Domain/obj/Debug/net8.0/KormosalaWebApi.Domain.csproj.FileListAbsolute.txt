@@ -10,3 +10,4 @@ C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWeb
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Domain\obj\Debug\net8.0\refint\KormosalaWebApi.Domain.dll
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Domain\obj\Debug\net8.0\KormosalaWebApi.Domain.pdb
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Domain\obj\Debug\net8.0\ref\KormosalaWebApi.Domain.dll
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Core\KormosalaWebApi.Domain\obj\Debug\net8.0\KormosalaWebApi.Domain.csproj.AssemblyReference.cache

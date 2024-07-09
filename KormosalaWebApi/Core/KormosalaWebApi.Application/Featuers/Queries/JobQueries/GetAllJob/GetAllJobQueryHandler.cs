@@ -26,7 +26,7 @@ namespace KormosalaWebApi.Application.Featuers.Queries.JobQueries.GetAllJob
             {
                 Id = x.Id,
                 Description = x.Description,
-                Experince = x.Experince,
+                Experience = x.Experience,
                 JobType = x.JobType,
                 Name = x.Name,
                 Salary = x.Salary,

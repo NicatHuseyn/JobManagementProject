@@ -33,7 +33,7 @@ namespace KormosalaWebApi.Application.Featuers.Commands.JobCommands.UpdateJob
             try
             {
                 job.Description = request.Description;
-                job.Experince = request.Experince;
+                job.Experience = request.Experience;
                 job.Name = request.Name;
                 job.Salary = request.Salary;
                 job.CategoryId = request.CategoryId;

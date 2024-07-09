@@ -6,6 +6,7 @@ using KormosalaWebApi.Application.Repositories.ContactRepository;
 using KormosalaWebApi.Application.Repositories.IndustryRepository;
 using KormosalaWebApi.Application.Repositories.JobRepository;
 using KormosalaWebApi.Application.Repositories.LocationRepository;
+using KormosalaWebApi.Domain.Entities.Identity;
 using KormosalaWebApi.Persistence.Abstractions;
 using KormosalaWebApi.Persistence.Abstractions.CategoryAbstraction;
 using KormosalaWebApi.Persistence.Contexts;
@@ -31,6 +32,16 @@ namespace KormosalaWebApi.Persistence
         public static void AddPersistenceService(this IServiceCollection services)
         {
             services.AddDbContext<KormosalaDbContext>(options=>options.UseSqlServer(Configuration.ConnectionString));
+
+            services.AddIdentity<AppUser, AppRole>(options =>
+            {
+                options.Password.RequiredLength = 5;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireDigit = false;
+            }
+         ).AddEntityFrameworkStores<KormosalaDbContext>();
 
             services.AddScoped<IBlogRepository,BlogRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();

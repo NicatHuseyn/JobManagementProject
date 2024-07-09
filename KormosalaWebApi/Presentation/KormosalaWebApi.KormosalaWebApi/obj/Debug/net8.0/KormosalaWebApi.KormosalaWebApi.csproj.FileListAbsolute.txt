@@ -8,10 +8,16 @@ C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWeb
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\KormosalaWebApi.KormosalaWebApi.pdb
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\Azure.Identity.dll
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\Humanizer.dll
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\MediatR.dll
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\MediatR.Contracts.dll
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
@@ -24,6 +30,9 @@ C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWeb
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\Microsoft.Identity.Client.dll
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
@@ -52,6 +61,7 @@ C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWeb
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\System.Runtime.Caching.dll
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\System.Security.Permissions.dll
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\System.Text.Json.dll
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\System.Windows.Extensions.dll
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
@@ -130,6 +140,7 @@ C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWeb
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\obj\Debug\net8.0\KormosalaWebApi.KormosalaWebApi.AssemblyInfoInputs.cache
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\obj\Debug\net8.0\KormosalaWebApi.KormosalaWebApi.AssemblyInfo.cs
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\obj\Debug\net8.0\KormosalaWebApi.KormosalaWebApi.csproj.CoreCompileInputs.cache
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\obj\Debug\net8.0\KormosalaWebApi.KormosalaWebApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\obj\Debug\net8.0\KormosalaWebApi.KormosalaWebApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\obj\Debug\net8.0\KormosalaWebApi.KormosalaWebApi.sourcelink.json
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\obj\Debug\net8.0\staticwebassets.build.json
@@ -146,6 +157,3 @@ C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWeb
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\obj\Debug\net8.0\KormosalaWebApi.KormosalaWebApi.pdb
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\obj\Debug\net8.0\KormosalaWebApi.KormosalaWebApi.genruntimeconfig.cache
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\obj\Debug\net8.0\ref\KormosalaWebApi.KormosalaWebApi.dll
-C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\FluentValidation.dll
-C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
-C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll

@@ -24,7 +24,7 @@ namespace KormosalaWebApi.Application.Featuers.Commands.JobCommands.CreateJob
                 await _repository.AddAsync(new Domain.Entities.Job
                 {
                     Description = request.Description,
-                    Experince = request.Experince,
+                    Experience = request.Experience,
                     JobType = request.JobType,
                     Name = request.Name,
                     Salary = request.Salary,

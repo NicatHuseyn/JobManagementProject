@@ -14,7 +14,7 @@ namespace KormosalaWebApi.Application.Featuers.Commands.JobCommands.UpdateJob
         public string Name { get; set; }
         public string Description { get; set; }
         public float Salary { get; set; }
-        public int Experince { get; set; }
+        public int Experience { get; set; }
 
         public string JobType { get; set; }
 

@@ -1,5 +1,7 @@
 ﻿using KormosalaWebApi.Domain.Entities;
 using KormosalaWebApi.Domain.Entities.Common;
+using KormosalaWebApi.Domain.Entities.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace KormosalaWebApi.Persistence.Contexts
 {
-    public class KormosalaDbContext:DbContext
+    public class KormosalaDbContext:IdentityDbContext<AppUser,AppRole,int>
     {
         public KormosalaDbContext(DbContextOptions<KormosalaDbContext> options):base(options) { }
          

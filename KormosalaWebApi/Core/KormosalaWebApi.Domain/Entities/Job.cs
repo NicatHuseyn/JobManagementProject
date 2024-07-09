@@ -14,7 +14,7 @@ namespace KormosalaWebApi.Domain.Entities
         public string Name { get; set; }
         public string Description { get; set; }
         public float Salary { get; set; }
-        public int Experince { get; set; }
+        public int Experience { get; set; }
         public int AppliedCount { get; set; }
         public bool isNew { get; set; }
         public int ViewCount { get; set; }

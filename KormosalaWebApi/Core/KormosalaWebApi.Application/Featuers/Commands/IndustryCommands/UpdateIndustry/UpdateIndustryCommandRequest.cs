@@ -11,6 +11,5 @@ namespace KormosalaWebApi.Application.Featuers.Commands.IndustryCommands.UpdateI
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Icon { get; set; }
     }
 }
