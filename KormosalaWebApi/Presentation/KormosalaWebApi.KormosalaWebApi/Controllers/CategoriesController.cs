@@ -149,6 +149,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
             }
         }
 
+
         [HttpGet]
         [Route("GetCategoryWithJobs")]
         public async Task<IActionResult> GetCategoryWithJobs([FromQuery]GetCategoryWithJobsQueryRequest request)

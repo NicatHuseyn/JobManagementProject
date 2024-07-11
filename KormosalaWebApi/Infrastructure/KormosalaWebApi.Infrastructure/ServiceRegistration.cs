@@ -1,5 +1,7 @@
-﻿using KormosalaWebApi.Application.Services.FileService;
+﻿using KormosalaWebApi.Application.Abstractions.Token;
+using KormosalaWebApi.Application.Services.FileService;
 using KormosalaWebApi.Infrastructure.Services.FileService;
+using KormosalaWebApi.Infrastructure.Services.Token;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -16,6 +18,8 @@ namespace KormosalaWebApi.Infrastructure
         public static void AddInfrastructureService(this IServiceCollection services)
         {
             services.AddScoped<IFileService, FileService>();
+            services.AddScoped<ITokenHandler, TokenHandler>();
+
         }
     }
 }

@@ -64,7 +64,7 @@ namespace KormosalaWebApi.Infrastructure.Services.FileService
             foreach (var file in files)
             {
                 
-                //todo Lesson 27
+                //todo SEO Optimization
 
                 //string newFileName = await FileRenameAsync(file.FileName);
                 //var result = await CopyFileAsync($"{uploadPath}\\{newFileName}", file);

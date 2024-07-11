@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KormosalaWebApi.Application.DTOs.TokenDtos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace KormosalaWebApi.Application.Featuers.Commands.UserCommands.LoginUser
 {
     public class LoginUserCommandResponse
     {
+        public Token Token { get; set; }
         public bool Success { get; set; }
         public string Message { get; set; }
     }

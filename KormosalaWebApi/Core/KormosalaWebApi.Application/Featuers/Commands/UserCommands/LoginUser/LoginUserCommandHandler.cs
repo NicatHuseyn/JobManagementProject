@@ -1,4 +1,6 @@
-﻿using KormosalaWebApi.Domain.Entities.Identity;
+﻿using KormosalaWebApi.Application.Abstractions.Token;
+using KormosalaWebApi.Application.DTOs.TokenDtos;
+using KormosalaWebApi.Domain.Entities.Identity;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -13,12 +15,14 @@ namespace KormosalaWebApi.Application.Featuers.Commands.UserCommands.LoginUser
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
+        private readonly ITokenHandler _tokenHandler;
 
 
-        public LoginUserCommandHandler(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        public LoginUserCommandHandler(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ITokenHandler tokenHandler)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _tokenHandler = tokenHandler;
         }
 
         public async Task<LoginUserCommandResponse> Handle(LoginUserCommandRequest request, CancellationToken cancellationToken)
@@ -40,15 +44,31 @@ namespace KormosalaWebApi.Application.Featuers.Commands.UserCommands.LoginUser
 
                 if (result.Succeeded)
                 {
-                    
+                    Token token = _tokenHandler.CreateAccessToken();
+                    return new LoginUserCommandResponse
+                    {
+                        Token = token,
+                        Success = true,
+                        Message = "Success token"
+                    };
+                }
+                else
+                {
+                    return new LoginUserCommandResponse
+                    {
+                        Success = false,
+                        Message = "Check your password"
+                    };
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return new LoginUserCommandResponse
+                {
+                    Success = false,
+                    Message = ex.Message
+                };
             }
-            throw new NotImplementedException();
         }
     }
 }

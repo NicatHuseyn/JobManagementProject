@@ -4,7 +4,10 @@ using KormosalaWebApi.Application;
 using KormosalaWebApi.Application.Featuers.Commands.IndustryCommands.CreateIndustry;
 using KormosalaWebApi.Infrastructure;
 using KormosalaWebApi.Persistence;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using System.Reflection;
+using System.Text;
 
 namespace KormosalaWebApi.KormosalaWebApi
 {
@@ -39,8 +42,26 @@ namespace KormosalaWebApi.KormosalaWebApi
                 fv.RegisterValidatorsFromAssemblyContaining<CreateIndustryCommandRequest>();
             });
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                 .AddJwtBearer("Admin", options =>
+                 {
+                     options.TokenValidationParameters = new()
+                     {
+                         ValidateAudience = true,
+                         ValidateIssuer = true,
+                         ValidateLifetime = true,
+                         ValidateIssuerSigningKey = true,
+
+                         ValidAudience = builder.Configuration["Token:Auidence"],
+                         ValidIssuer = builder.Configuration["Token:Issure"],
+                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:SecurityKey"]))
+                     };
+                 });
 
 
 
@@ -59,6 +80,7 @@ namespace KormosalaWebApi.KormosalaWebApi
 
             app.UseHttpsRedirection();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
 

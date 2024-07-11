@@ -157,3 +157,4 @@ C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWeb
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\obj\Debug\net8.0\KormosalaWebApi.KormosalaWebApi.pdb
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\obj\Debug\net8.0\KormosalaWebApi.KormosalaWebApi.genruntimeconfig.cache
 C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\obj\Debug\net8.0\ref\KormosalaWebApi.KormosalaWebApi.dll
+C:\Users\Nicat\OneDrive\Рабочий стол\FinalProjectBackend\KormosalaWebApi\Presentation\KormosalaWebApi.KormosalaWebApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

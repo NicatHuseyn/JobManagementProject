@@ -3,6 +3,7 @@ using KormosalaWebApi.Application.Featuers.Commands.JobCommands.RemoveJob;
 using KormosalaWebApi.Application.Featuers.Commands.JobCommands.UpdateJob;
 using KormosalaWebApi.Application.Featuers.Queries.JobQueries.GetAllJob;
 using KormosalaWebApi.Application.Featuers.Queries.JobQueries.GetByIdJob;
+using KormosalaWebApi.Application.Featuers.Queries.JobQueries.GetJobCategoryAndCompany;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -143,6 +144,15 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
             {
                 return StatusCode(500, ex.Message);
             }
+        }
+
+
+        [HttpGet]
+        [Route("GetJobCategoryAndCompany")]
+        public  async Task<IActionResult> GetJobCategoryAndCompany([FromQuery]GetJobCategoryAndCompanyQueryRequest request)
+        {
+            var responses = await _mediator.Send(request);
+            return Ok(responses);
         }
     }
 }
