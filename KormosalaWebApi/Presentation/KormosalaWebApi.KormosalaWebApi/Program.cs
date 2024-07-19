@@ -59,7 +59,8 @@ namespace KormosalaWebApi.KormosalaWebApi
 
                          ValidAudience = builder.Configuration["Token:Auidence"],
                          ValidIssuer = builder.Configuration["Token:Issure"],
-                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:SecurityKey"]))
+                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:SecurityKey"])),
+                         LifetimeValidator = (notBefore, expires,securityToken, validationParameters) => expires is not null ? expires > DateTime.UtcNow: false
                      };
                  });
 

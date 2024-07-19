@@ -2737,6 +2737,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "Google.Apis.Auth": "1.68.0",
           "KormosalaWebApi.Application": "1.0.0",
           "KormosalaWebApi.Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore": "8.0.7",

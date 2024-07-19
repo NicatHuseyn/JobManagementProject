@@ -1,4 +1,5 @@
-﻿using Google.Apis.Auth;
+﻿   using Google.Apis.Auth;
+using KormosalaWebApi.Application.Abstractions.Services.AuthServices;
 using KormosalaWebApi.Application.Abstractions.Token;
 using KormosalaWebApi.Application.DTOs.TokenDtos;
 using KormosalaWebApi.Domain.Entities.Identity;
@@ -14,67 +15,20 @@ namespace KormosalaWebApi.Application.Featuers.Commands.UserCommands.GooleLogin
 {
     public class GooleLoginCommandHandler : IRequestHandler<GooleLoginCommandRequest, GooleLoginCommandResponse>
     {
-        private readonly UserManager<AppUser> _userManager;
-        private readonly ITokenHandler _tokenHandler;
+        private readonly IExternalAuthentication _externalAuthentication;
 
-        public GooleLoginCommandHandler(UserManager<AppUser> userManager, ITokenHandler tokenHandler)
+        public GooleLoginCommandHandler(IExternalAuthentication externalAuthentication)
         {
-            _userManager = userManager;
-            _tokenHandler = tokenHandler;
+            _externalAuthentication = externalAuthentication;
         }
 
         public async Task<GooleLoginCommandResponse> Handle(GooleLoginCommandRequest request, CancellationToken cancellationToken)
         {
-            var settings = new GoogleJsonWebSignature.ValidationSettings()
-            {
-                Audience = new List<string> { "303036556064-nvp9b5mk124reoqgta6ncmg7j5p7915s.apps.googleusercontent.com" }
-            };
-
-            var payload = await GoogleJsonWebSignature.ValidateAsync(request.Credential, settings);
-
-            var info = new UserLoginInfo("GOOGLE", payload.Subject, "GOOGLE");
-
-            var user = await _userManager.FindByLoginAsync(info.LoginProvider, info.ProviderKey);
-
-            bool result = user != null;
-
-            if (user is null)
-            {
-                user = await _userManager.FindByEmailAsync(payload.Email);
-
-                if (user is null)
-                {
-                    user = new AppUser
-                    {
-                        Email = payload.Email,
-                        UserName = payload.Email, 
-                        FullName = payload.Name
-                    };
-
-                    IdentityResult identityResult = await _userManager.CreateAsync(user);
-
-                    if (!identityResult.Succeeded)
-                    {
-                        throw new Exception("Could not create user");
-                    }
-                }
-
-                IdentityResult addLoginResult = await _userManager.AddLoginAsync(user, info);
-                if (!addLoginResult.Succeeded)
-                {
-                    throw new Exception("Invariant external authentication.");
-                }
-                else
-                {
-                    throw new Exception("Invariant external authentication.");
-                }
-            }
-
-            Token token = _tokenHandler.CreateAccessToken();
+            Token token = await _externalAuthentication.GoogleLoginAsync(request.Credential);
 
             return new GooleLoginCommandResponse
             {
-                Token = token
+                Token = token,
             };
         }
     }

@@ -5795,6 +5795,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Google.Apis.Auth >= 1.68.0",
       "KormosalaWebApi.Application >= 1.0.0",
       "KormosalaWebApi.Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 8.0.7",
@@ -5856,6 +5857,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Google.Apis.Auth": {
+            "target": "Package",
+            "version": "[1.68.0, )"
+          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[8.0.7, )"

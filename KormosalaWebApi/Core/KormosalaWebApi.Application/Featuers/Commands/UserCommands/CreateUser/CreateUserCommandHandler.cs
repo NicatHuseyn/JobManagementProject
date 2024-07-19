@@ -1,4 +1,6 @@
-﻿using KormosalaWebApi.Domain.Entities.Identity;
+﻿using KormosalaWebApi.Application.Abstractions.Services.UserServices;
+using KormosalaWebApi.Application.DTOs.UserDtos;
+using KormosalaWebApi.Domain.Entities.Identity;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -11,45 +13,29 @@ namespace KormosalaWebApi.Application.Featuers.Commands.UserCommands.CreateUser
 {
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommandRequest, CreateUserCommandResponse>
     {
-        private readonly UserManager<AppUser> _userManager;
+        private readonly IUserService _userService;
 
-        public CreateUserCommandHandler(UserManager<AppUser> userManager)
+        public CreateUserCommandHandler(IUserService userService)
         {
-            _userManager = userManager;
+            _userService = userService;
         }
 
         public async Task<CreateUserCommandResponse> Handle(CreateUserCommandRequest request, CancellationToken cancellationToken)
         {
-            IdentityResult result = await _userManager.CreateAsync(new AppUser
+            CreateUserResponseDto response = await _userService.CreateAsync(new()
             {
                 FullName = request.FullName,
-                UserName = request.UserName,
                 Email = request.Email,
-            }, request.Password);
+                UserName = request.UserName,
+                Password = request.Password,
+                PasswordConfirm = request.PasswordConfirm,
+            });
 
-            // String Builder for error messages
-            StringBuilder sb = new StringBuilder();
-
-            if (result.Succeeded)
+            return new()
             {
-                return new CreateUserCommandResponse
-                {
-                    Success = true,
-                    Message = "Create User Successfully"
-                };
-            }
-            else
-            {
-                foreach (var error in result.Errors)
-                {
-                    sb.AppendLine($"Code:{error.Code} Message:{error.Description}");
-                }
-                return new CreateUserCommandResponse
-                {
-                    Success = false,
-                    Message = sb.ToString()
-                };
-            }
+                Message = response.Message,
+                Success = response.Success,
+            };
         }
     }
 }

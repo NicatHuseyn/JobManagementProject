@@ -9,5 +9,6 @@ namespace KormosalaWebApi.Application.Abstractions.Token
     public interface ITokenHandler
     {
         DTOs.TokenDtos.Token CreateAccessToken();
+        string CreateRefreshToken();
     }
 }

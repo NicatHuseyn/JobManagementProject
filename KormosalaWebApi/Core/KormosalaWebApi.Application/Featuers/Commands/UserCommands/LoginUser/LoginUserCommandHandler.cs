@@ -1,4 +1,6 @@
-﻿using KormosalaWebApi.Application.Abstractions.Token;
+﻿using KormosalaWebApi.Application.Abstractions.Services.AuthServices;
+using KormosalaWebApi.Application.Abstractions.Token;
+using KormosalaWebApi.Application.DTOs.LoginDtos;
 using KormosalaWebApi.Application.DTOs.TokenDtos;
 using KormosalaWebApi.Domain.Entities.Identity;
 using MediatR;
@@ -13,62 +15,27 @@ namespace KormosalaWebApi.Application.Featuers.Commands.UserCommands.LoginUser
 {
     public class LoginUserCommandHandler : IRequestHandler<LoginUserCommandRequest, LoginUserCommandResponse>
     {
-        private readonly UserManager<AppUser> _userManager;
-        private readonly SignInManager<AppUser> _signInManager;
-        private readonly ITokenHandler _tokenHandler;
+        private readonly IInternalAuthentication _internalAuthentication;
 
-
-        public LoginUserCommandHandler(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ITokenHandler tokenHandler)
+        public LoginUserCommandHandler(IInternalAuthentication internalAuthentication)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
-            _tokenHandler = tokenHandler;
+            _internalAuthentication = internalAuthentication;
         }
 
         public async Task<LoginUserCommandResponse> Handle(LoginUserCommandRequest request, CancellationToken cancellationToken)
         {
-            var user = await _userManager.FindByNameAsync(request.UserNameOrEmail)?? await _userManager.FindByEmailAsync(request.UserNameOrEmail);
-
-            if (user is null)
+            LoginResponseDto response = await _internalAuthentication.LoginAsync(new DTOs.LoginDtos.LoginRequestDto
             {
-                return new LoginUserCommandResponse
-                {
-                    Success = false,
-                    Message = "Check your username"
-                };
-            }
+                UserNameOrEmail = request.UserNameOrEmail,
+                Password = request.Password
+            });
 
-            try
+            return new LoginUserCommandResponse
             {
-                SignInResult result = await _signInManager.CheckPasswordSignInAsync(user,request.Password,false);
-
-                if (result.Succeeded)
-                {
-                    Token token = _tokenHandler.CreateAccessToken();
-                    return new LoginUserCommandResponse
-                    {
-                        Token = token,
-                        Success = true,
-                        Message = "Success token"
-                    };
-                }
-                else
-                {
-                    return new LoginUserCommandResponse
-                    {
-                        Success = false,
-                        Message = "Check your password"
-                    };
-                }
-            }
-            catch (Exception ex)
-            {
-                return new LoginUserCommandResponse
-                {
-                    Success = false,
-                    Message = ex.Message
-                };
-            }
+                Message = response.Message,
+                Success = response.Success,
+                Token = response.Token
+            };
         }
     }
 }

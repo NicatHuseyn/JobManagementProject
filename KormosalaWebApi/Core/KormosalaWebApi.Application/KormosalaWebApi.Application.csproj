@@ -21,10 +21,4 @@
     <ProjectReference Include="..\KormosalaWebApi.Domain\KormosalaWebApi.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DTOs\BlogDtos\" />
-    <Folder Include="DTOs\CategoryDtos\" />
-    <Folder Include="DTOs\CompanyDtos\" />
-  </ItemGroup>
-
 </Project>

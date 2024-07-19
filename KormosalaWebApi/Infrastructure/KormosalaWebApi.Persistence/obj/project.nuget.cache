@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "eEK+vBg6AZKdRQuKEWYHMarz100nT4d+Et5Gq3WegR6DT+aXkmXm7dhv4TJcO55FYsXqv7odAte1aZi9s9ighg==",
+  "dgSpecHash": "FS6qN587I3Og/KMTvHkbNp0WqNG/ezCM5E8v9UGaCdI9BcXGx59eppJGyngQ4iYya5gkqsGcfh4PkTiq3iYxcA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Nicat\\OneDrive\\Рабочий стол\\FinalProjectBackend\\KormosalaWebApi\\Infrastructure\\KormosalaWebApi.Persistence\\KormosalaWebApi.Persistence.csproj",
   "expectedPackageFiles": [

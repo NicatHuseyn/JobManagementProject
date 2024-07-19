@@ -1,40 +1,40 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace KormosalaWebApi.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class mig_7 : Migration
+    public partial class mig_2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "Description",
-                table: "Categories",
+                name: "RefreshToken",
+                table: "AspNetUsers",
                 type: "nvarchar(max)",
                 nullable: false,
                 defaultValue: "");
 
-            migrationBuilder.AddColumn<string>(
-                name: "Icon",
-                table: "Categories",
-                type: "nvarchar(max)",
-                nullable: false,
-                defaultValue: "");
+            migrationBuilder.AddColumn<DateTime>(
+                name: "RefreshTokenEndDate",
+                table: "AspNetUsers",
+                type: "datetime2",
+                nullable: true);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Description",
-                table: "Categories");
+                name: "RefreshToken",
+                table: "AspNetUsers");
 
             migrationBuilder.DropColumn(
-                name: "Icon",
-                table: "Categories");
+                name: "RefreshTokenEndDate",
+                table: "AspNetUsers");
         }
     }
 }

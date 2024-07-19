@@ -38,18 +38,6 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
             }
         }
 
-        [HttpPost("[action]")]
-        public async Task<IActionResult> Login([FromBody] LoginUserCommandRequest request)
-        {
-            var response = await _mediator.Send(request);
-            return Ok(new { Data = response, Message = response.Message });
-        }
-
-        [HttpPost("google-login")]
-        public async Task<IActionResult> GoogleLogin([FromBody]Application.Featuers.Commands.UserCommands.GooleLogin.GooleLoginCommandRequest request)
-        {
-            var response = await _mediator.Send(request);
-            return Ok(response);
-        }
+        
     }
 }

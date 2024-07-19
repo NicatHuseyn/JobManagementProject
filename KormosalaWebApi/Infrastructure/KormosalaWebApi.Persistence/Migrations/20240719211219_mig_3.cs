@@ -5,30 +5,32 @@
 namespace KormosalaWebApi.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class mig_9 : Migration
+    public partial class mig_3 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
-                name: "JobType",
-                table: "Jobs",
+                name: "RefreshToken",
+                table: "AspNetUsers",
                 type: "nvarchar(max)",
-                nullable: false,
-                oldClrType: typeof(int),
-                oldType: "int");
+                nullable: true,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<int>(
-                name: "JobType",
-                table: "Jobs",
-                type: "int",
+            migrationBuilder.AlterColumn<string>(
+                name: "RefreshToken",
+                table: "AspNetUsers",
+                type: "nvarchar(max)",
                 nullable: false,
+                defaultValue: "",
                 oldClrType: typeof(string),
-                oldType: "nvarchar(max)");
+                oldType: "nvarchar(max)",
+                oldNullable: true);
         }
     }
 }
