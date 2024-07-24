@@ -1,4 +1,5 @@
-﻿using KormosalaWebApi.Application.Repositories.IndustryRepository;
+﻿using KormosalaWebApi.Application.Abstractions.Services.IndustryServices;
+using KormosalaWebApi.Application.Repositories.IndustryRepository;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -10,38 +11,25 @@ namespace KormosalaWebApi.Application.Featuers.Commands.IndustryCommands.CreateI
 {
     public class CreateIndustryCommandHandler : IRequestHandler<CreateIndustryCommandRequest, CreateIndustryCommandResponse>
     {
-        private readonly IIndustryRepository _repository;
+        private readonly IIndustryService _industryService;
 
-        public CreateIndustryCommandHandler(IIndustryRepository repository)
+        public CreateIndustryCommandHandler(IIndustryService industryService)
         {
-            _repository = repository;
+            _industryService = industryService;
         }
 
         public async Task<CreateIndustryCommandResponse> Handle(CreateIndustryCommandRequest request, CancellationToken cancellationToken)
         {
-            try
+            await _industryService.CreateIndustryAsync(new DTOs.IndustryDtos.CreateIndustryDtos.CreateIndustryCommandRequestDto
             {
-                await _repository.AddAsync(new Domain.Entities.Industry
-                {
-                    Name = request.Name,
-                });
+                Name = request.Name,
+            });
 
-                await _repository.SaveAsync();
-
-                return new CreateIndustryCommandResponse
-                {
-                    Success = true,
-                    Message = "Industry Created Successfully"
-                };
-            }
-            catch (Exception ex)
+            return new CreateIndustryCommandResponse
             {
-                return new CreateIndustryCommandResponse
-                {
-                    Success = false,
-                    Message = ex.Message
-                };
-            }
+                Success = true,
+                Message = "Successfully"
+            };
         }
     }
 }

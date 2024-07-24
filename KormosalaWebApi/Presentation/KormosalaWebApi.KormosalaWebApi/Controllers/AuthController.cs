@@ -1,4 +1,5 @@
 ﻿using KormosalaWebApi.Application.Featuers.Commands.UserCommands.LoginUser;
+using KormosalaWebApi.Application.Featuers.Commands.UserCommands.RefreshTokenLogin;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +26,13 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
 
         [HttpPost("google-login")]
         public async Task<IActionResult> GoogleLogin([FromBody] Application.Featuers.Commands.UserCommands.GooleLogin.GooleLoginCommandRequest request)
+        {
+            var response = await _mediator.Send(request);
+            return Ok(response);
+        }
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> RefreshToken([FromForm]RefreshTokenLoginCommandRequest request)
         {
             var response = await _mediator.Send(request);
             return Ok(response);

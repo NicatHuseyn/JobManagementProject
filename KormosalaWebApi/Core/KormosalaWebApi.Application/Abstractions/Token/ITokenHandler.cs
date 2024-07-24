@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KormosalaWebApi.Domain.Entities.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace KormosalaWebApi.Application.Abstractions.Token
 {
     public interface ITokenHandler
     {
-        DTOs.TokenDtos.Token CreateAccessToken();
+        DTOs.TokenDtos.Token CreateAccessToken(AppUser appUser);
         string CreateRefreshToken();
     }
 }

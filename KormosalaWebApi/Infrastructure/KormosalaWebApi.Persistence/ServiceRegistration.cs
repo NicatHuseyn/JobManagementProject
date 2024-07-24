@@ -1,4 +1,5 @@
 ﻿using KormosalaWebApi.Application.Abstractions.Services.AuthServices;
+using KormosalaWebApi.Application.Abstractions.Services.IndustryServices;
 using KormosalaWebApi.Application.Abstractions.Services.UserServices;
 using KormosalaWebApi.Application.Interfaces.CategoryInterfaces;
 using KormosalaWebApi.Application.Repositories.BlogRepository;
@@ -20,6 +21,7 @@ using KormosalaWebApi.Persistence.Repositories.IndustryRepository;
 using KormosalaWebApi.Persistence.Repositories.JobRepository;
 using KormosalaWebApi.Persistence.Repositories.LocationRepository;
 using KormosalaWebApi.Persistence.Services.AuthServices;
+using KormosalaWebApi.Persistence.Services.IndustryServices;
 using KormosalaWebApi.Persistence.Services.UserServices;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -59,6 +61,9 @@ namespace KormosalaWebApi.Persistence
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IExternalAuthentication, AuthService>();
             services.AddScoped<IInternalAuthentication,AuthService>();
+            services.AddScoped<IAuthService, AuthService>();
+
+            services.AddScoped<IIndustryService, IndustryService>();
         }
     }
 }

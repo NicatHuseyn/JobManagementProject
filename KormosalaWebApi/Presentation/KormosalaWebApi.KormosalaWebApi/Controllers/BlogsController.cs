@@ -12,7 +12,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(AuthenticationSchemes = "Admin")]
+    [Authorize(AuthenticationSchemes = "Admin")]
     public class BlogsController : ControllerBase
     {
         private readonly IMediator _mediator;

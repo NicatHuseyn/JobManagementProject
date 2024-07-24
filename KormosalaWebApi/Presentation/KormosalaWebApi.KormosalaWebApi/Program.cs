@@ -3,10 +3,20 @@ using FluentValidation.AspNetCore;
 using KormosalaWebApi.Application;
 using KormosalaWebApi.Application.Featuers.Commands.IndustryCommands.CreateIndustry;
 using KormosalaWebApi.Infrastructure;
+using KormosalaWebApi.KormosalaWebApi.Configurations.ColumnWriters;
+using KormosalaWebApi.KormosalaWebApi.Extensions;
 using KormosalaWebApi.Persistence;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.HttpLogging;
+using Microsoft.EntityFrameworkCore.Migrations.Operations;
+using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
+using Serilog.Context;
+using Serilog.Core;
+using Serilog.Sinks.MSSqlServer;
 using System.Reflection;
+using System.Security.Claims;
 using System.Text;
 
 namespace KormosalaWebApi.KormosalaWebApi
@@ -32,8 +42,52 @@ namespace KormosalaWebApi.KormosalaWebApi
             }));
             #endregion
 
+            #region Serilog
+
+            SqlColumn sqlColumn = new SqlColumn();
+            sqlColumn.ColumnName = "UserName";
+            sqlColumn.DataType = System.Data.SqlDbType.NVarChar;
+            sqlColumn.PropertyName = "UserName";
+            sqlColumn.DataLength = 50;
+            sqlColumn.AllowNull = true;
+
+            ColumnOptions columnOptions = new ColumnOptions();
+
+
+            Logger log = new LoggerConfiguration()
+                .WriteTo.Console()
+                .WriteTo.File("logs/log.txt")
+                .WriteTo.MSSqlServer(builder.Configuration.GetConnectionString("SqlServer"), sinkOptions: new Serilog.Sinks.MSSqlServer.MSSqlServerSinkOptions
+                {
+                    AutoCreateSqlTable = true,
+                    TableName = "logs"
+                },
+                appConfiguration: null,
+                columnOptions: columnOptions
+                )
+                .WriteTo.Seq(builder.Configuration["Seq:ServerUrl"])
+                .Enrich.FromLogContext()
+                .Enrich.With<CustomUserNameColumn>()
+                .MinimumLevel.Information()
+                .CreateLogger();
+
+            builder.Host.UseSerilog(log);
+
+            builder.Services.AddHttpLogging(logging =>
+            {
+                logging.LoggingFields = HttpLoggingFields.All;
+                logging.ResponseHeaders.Add("sec-ch-ua");
+                logging.MediaTypeOptions.AddText("application/javascript");
+                logging.RequestBodyLogLimit = 4096;
+                logging.ResponseBodyLogLimit = 4096;
+            });
+
+            #endregion
+
+
             // Add services to the container.
 
+            #region Fluent validation
             builder.Services.AddControllers().AddFluentValidation(fv =>
             {
                 fv.ImplicitlyValidateChildProperties = true;
@@ -41,12 +95,14 @@ namespace KormosalaWebApi.KormosalaWebApi
                 fv.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
                 fv.RegisterValidatorsFromAssemblyContaining<CreateIndustryCommandRequest>();
             });
+            #endregion
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            #region JWT Configuration
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                  .AddJwtBearer("Admin", options =>
                  {
@@ -60,9 +116,11 @@ namespace KormosalaWebApi.KormosalaWebApi
                          ValidAudience = builder.Configuration["Token:Auidence"],
                          ValidIssuer = builder.Configuration["Token:Issure"],
                          IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:SecurityKey"])),
-                         LifetimeValidator = (notBefore, expires,securityToken, validationParameters) => expires is not null ? expires > DateTime.UtcNow: false
+                         LifetimeValidator = (notBefore, expires, securityToken, validationParameters) => expires is not null ? expires > DateTime.UtcNow : false,
+                         NameClaimType = ClaimTypes.Name
                      };
                  });
+            #endregion
 
 
 
@@ -75,7 +133,12 @@ namespace KormosalaWebApi.KormosalaWebApi
                 app.UseSwaggerUI();
             }
 
-            //app.UseStaticFiles();
+            app.ConfigureExceptionHandler<Program>(app.Services.GetRequiredService<ILogger<Program>>());
+
+            app.UseStaticFiles();
+
+            app.UseSerilogRequestLogging();
+            app.UseHttpLogging();
 
             app.UseCors();
 
@@ -83,6 +146,17 @@ namespace KormosalaWebApi.KormosalaWebApi
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            #region Serilog Middleware Configuration
+            app.Use(async (context, next) =>
+            {
+                var userName = context.User.Identity?.IsAuthenticated != null || true ? context.User.Identity.Name : null;
+
+                LogContext.PushProperty("UserName", userName);
+
+                await next();
+            });
+            #endregion
 
 
             app.MapControllers();

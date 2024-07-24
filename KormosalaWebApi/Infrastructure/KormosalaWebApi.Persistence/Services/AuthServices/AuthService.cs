@@ -6,6 +6,7 @@ using KormosalaWebApi.Application.DTOs.LoginDtos;
 using KormosalaWebApi.Application.DTOs.TokenDtos;
 using KormosalaWebApi.Domain.Entities.Identity;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,7 @@ namespace KormosalaWebApi.Persistence.Services.AuthServices
         {
             var settings = new GoogleJsonWebSignature.ValidationSettings()
             {
-                Audience = new List<string> { _configuration["Google:Client_Id"] }
+                Audience = new List<string> { "303036556064-nvp9b5mk124reoqgta6ncmg7j5p7915s.apps.googleusercontent.com" }
             };
 
             var payload = await GoogleJsonWebSignature.ValidateAsync(credential,settings);
@@ -75,7 +76,7 @@ namespace KormosalaWebApi.Persistence.Services.AuthServices
                 }
             }
 
-            Token token = _tokenHandler.CreateAccessToken();
+            Token token = _tokenHandler.CreateAccessToken(user);
             await _userService.UpdateRefreshTokenAsync(token.RefreshToken, user, token.Expiration, 5);
             return token;
         }
@@ -99,8 +100,8 @@ namespace KormosalaWebApi.Persistence.Services.AuthServices
 
                 if (result.Succeeded)
                 {
-                    Token token = _tokenHandler.CreateAccessToken();
-                    await _userService.UpdateRefreshTokenAsync(token.RefreshToken,user,token.Expiration,5);
+                    Token token = _tokenHandler.CreateAccessToken(user);
+                    await _userService.UpdateRefreshTokenAsync(token.RefreshToken,user,token.Expiration,1);
                     return new LoginResponseDto
                     {
                         Success = true,
@@ -127,6 +128,19 @@ namespace KormosalaWebApi.Persistence.Services.AuthServices
                     Token = null
                 };
             }
+        }
+
+        public async Task<Token> RefreshTokenLoginAsync(string refreshToken)
+        {
+            AppUser? user = await _userManager.Users.FirstOrDefaultAsync(u=>u.RefreshToken == refreshToken);
+
+            if (user is { } && user?.RefreshTokenEndDate > DateTime.UtcNow)
+            {
+                Token token = _tokenHandler.CreateAccessToken(user);
+                await _userService.UpdateRefreshTokenAsync(token.RefreshToken,user,token.Expiration, 15);
+                return token;
+            }
+            throw new Exception("Not Found User");
         }
     }
 }

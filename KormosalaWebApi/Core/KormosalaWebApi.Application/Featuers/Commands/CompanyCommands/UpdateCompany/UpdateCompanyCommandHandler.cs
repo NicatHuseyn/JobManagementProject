@@ -1,5 +1,7 @@
 ﻿using KormosalaWebApi.Application.Repositories.CompnayRepository;
 using MediatR;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +13,12 @@ namespace KormosalaWebApi.Application.Featuers.Commands.CompanyCommands.UpdateCo
     public class UpdateCompanyCommandHandler : IRequestHandler<UpdateCompanyCommandRequest, UpdateCompanyCommandResponse>
     {
         private readonly ICompanyRepository _repository;
+        private readonly ILogger<UpdateCompanyCommandHandler> _logger;
 
-        public UpdateCompanyCommandHandler(ICompanyRepository repository)
+        public UpdateCompanyCommandHandler(ICompanyRepository repository, ILogger<UpdateCompanyCommandHandler> logger)
         {
             _repository = repository;
+            _logger = logger;
         }
 
         public async Task<UpdateCompanyCommandResponse> Handle(UpdateCompanyCommandRequest request, CancellationToken cancellationToken)
@@ -39,6 +43,8 @@ namespace KormosalaWebApi.Application.Featuers.Commands.CompanyCommands.UpdateCo
                 company.Icon = request.Icon;
 
                 await _repository.SaveAsync();
+
+                _logger.LogInformation("Company updated...");
 
                 return new UpdateCompanyCommandResponse { Success = true, Message = "Company Update Successfully" };
             }

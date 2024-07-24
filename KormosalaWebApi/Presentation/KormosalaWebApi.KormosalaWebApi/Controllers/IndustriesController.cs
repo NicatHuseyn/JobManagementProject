@@ -5,6 +5,7 @@ using KormosalaWebApi.Application.Featuers.Queries.IndustryQueries.GetAllIndustr
 using KormosalaWebApi.Application.Featuers.Queries.IndustryQueries.GetByIdIndustry;
 using KormosalaWebApi.Application.Repositories.IndustryRepository;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.DataProtection.KeyManagement.Internal;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = "Admin")]
     public class IndustriesController : ControllerBase
     {
         private readonly IMediator _mediator;
