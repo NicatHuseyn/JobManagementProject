@@ -6,6 +6,7 @@ using KormosalaWebApi.Application.Featuers.Queries.CategoryQueries.GetByIdCatego
 using KormosalaWebApi.Application.Featuers.Queries.CategoryQueries.GetCategoryWithJobs;
 using KormosalaWebApi.Application.Interfaces.CategoryInterfaces;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +14,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = "Admin")]
     public class CategoriesController : ControllerBase
     {
         private readonly IMediator _mediator;

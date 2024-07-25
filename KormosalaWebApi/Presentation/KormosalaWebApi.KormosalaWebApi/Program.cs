@@ -5,6 +5,7 @@ using KormosalaWebApi.Application.Featuers.Commands.IndustryCommands.CreateIndus
 using KormosalaWebApi.Infrastructure;
 using KormosalaWebApi.KormosalaWebApi.Configurations.ColumnWriters;
 using KormosalaWebApi.KormosalaWebApi.Extensions;
+using KormosalaWebApi.KormosalaWebApi.Middlewares;
 using KormosalaWebApi.Persistence;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.HttpLogging;
@@ -134,6 +135,7 @@ namespace KormosalaWebApi.KormosalaWebApi
             }
 
             app.ConfigureExceptionHandler<Program>(app.Services.GetRequiredService<ILogger<Program>>());
+            app.UseMiddleware<ExceptionHandlingMiddleware>();
 
             app.UseStaticFiles();
 

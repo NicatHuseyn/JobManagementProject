@@ -5,6 +5,7 @@ using KormosalaWebApi.Application.Featuers.Queries.JobQueries.GetAllJob;
 using KormosalaWebApi.Application.Featuers.Queries.JobQueries.GetByIdJob;
 using KormosalaWebApi.Application.Featuers.Queries.JobQueries.GetJobCategoryAndCompany;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,6 +13,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = "Admin")]
     public class JobsController : ControllerBase
     {
         private readonly IMediator _mediator;

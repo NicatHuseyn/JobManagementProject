@@ -4,6 +4,7 @@ using KormosalaWebApi.Application.Featuers.Commands.LocationCommands.UpdateLocat
 using KormosalaWebApi.Application.Featuers.Queries.LocationQueries.GetAllLocation;
 using KormosalaWebApi.Application.Featuers.Queries.LocationQueries.GetByIdLocation;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +12,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = "Admin")]
     public class LocationsController : ControllerBase
     {
         private readonly IMediator _mediator;

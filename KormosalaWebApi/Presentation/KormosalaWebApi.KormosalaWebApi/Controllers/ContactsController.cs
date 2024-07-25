@@ -4,6 +4,7 @@ using KormosalaWebApi.Application.Featuers.Commands.ContactCommands.UpdateContac
 using KormosalaWebApi.Application.Featuers.Queries.ContactQueries.GetAllContact;
 using KormosalaWebApi.Application.Featuers.Queries.ContactQueries.GetByIdContact;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +12,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = "Admin")]
     public class ContactsController : ControllerBase
     {
         private readonly IMediator _mediator;

@@ -34,7 +34,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
 
             if (responses.Count == 0)
             {
-                return Ok(new { Message = "Industries is empty" });
+                return Ok(new { Message = "Blog is empty" });
             }
 
             return Ok(responses);

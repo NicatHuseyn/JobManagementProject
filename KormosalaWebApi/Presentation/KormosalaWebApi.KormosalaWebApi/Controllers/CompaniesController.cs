@@ -7,11 +7,13 @@ using KormosalaWebApi.Application.Featuers.Queries.CompanyQueries.GetByIdCompany
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace KormosalaWebApi.KormosalaWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = "Admin")]
     public class CompaniesController : ControllerBase
     {
         private readonly IMediator _mediator;

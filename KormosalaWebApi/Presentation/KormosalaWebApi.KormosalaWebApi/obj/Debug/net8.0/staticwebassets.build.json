@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "0XwDlOhxqaJ4BAzGQ7Jdwu2FEscMSQE1MX4WToEJuqI=",
+  "Source": "KormosalaWebApi.KormosalaWebApi",
+  "BasePath": "_content/KormosalaWebApi.KormosalaWebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "KormosalaWebApi.KormosalaWebApi\\wwwroot",
+      "Source": "KormosalaWebApi.KormosalaWebApi",
+      "ContentRoot": "C:\\Users\\Nicat\\OneDrive\\Рабочий стол\\FinalProjectBackend\\KormosalaWebApi\\Presentation\\KormosalaWebApi.KormosalaWebApi\\wwwroot\\",
+      "BasePath": "_content/KormosalaWebApi.KormosalaWebApi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Nicat\\OneDrive\\Рабочий стол\\FinalProjectBackend\\KormosalaWebApi\\Presentation\\KormosalaWebApi.KormosalaWebApi\\wwwroot\\ImageResource\\Images\\5adbf35b-9e78-4c84-84c5-b9f9462f1686.png",
+      "SourceId": "KormosalaWebApi.KormosalaWebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nicat\\OneDrive\\Рабочий стол\\FinalProjectBackend\\KormosalaWebApi\\Presentation\\KormosalaWebApi.KormosalaWebApi\\wwwroot\\",
+      "BasePath": "_content/KormosalaWebApi.KormosalaWebApi",
+      "RelativePath": "ImageResource/Images/5adbf35b-9e78-4c84-84c5-b9f9462f1686.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ImageResource\\Images\\5adbf35b-9e78-4c84-84c5-b9f9462f1686.png"
+    }
+  ]
+}
