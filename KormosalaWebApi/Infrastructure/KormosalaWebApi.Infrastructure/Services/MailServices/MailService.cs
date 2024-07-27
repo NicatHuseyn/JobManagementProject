@@ -20,12 +20,12 @@ namespace KormosalaWebApi.Infrastructure.Services.MailServices
             _configuration = configuration;
         }
 
-        public async Task SendMessageAsync(string to, string subject, string body, bool isBodyHtml = true)
+        public async Task SendMailAsync(string to, string subject, string body, bool isBodyHtml = true)
         {
-            await SendMessageAsync(new[] {to}, subject,body);
+            await SendMailAsync(new[] {to}, subject,body);
         }
 
-        public async Task SendMessageAsync(string[] tos, string subject, string body, bool isBodyHtml = true)
+        public async Task SendMailAsync(string[] tos, string subject, string body, bool isBodyHtml = true)
         {
             MailMessage mailMessage = new MailMessage();
             mailMessage.IsBodyHtml = isBodyHtml;
@@ -47,6 +47,20 @@ namespace KormosalaWebApi.Infrastructure.Services.MailServices
             smtp.Host = "smtp.ethereal.email";
 
             await smtp.SendMailAsync(mailMessage);
+        }
+
+        public async Task SendPasswordResetMailAsync(string to, int userId, string resetToken)
+        {
+            StringBuilder mail = new StringBuilder();
+            mail.AppendLine("Hello</br></br> If you have requested a new password, you can renew your password from the link below. </br> <strong><a target = \"_blank\" href =\"");
+            mail.AppendLine(_configuration["ClientUiUrl"]);
+            mail.AppendLine("/update-password");
+            mail.AppendLine(userId.ToString());
+            mail.AppendLine("/");
+            mail.AppendLine(resetToken);
+            mail.AppendLine($"\"> Click for new password... </a></strong>");
+
+            await SendMailAsync(to,"Password Reset", mail.ToString());
         }
     }
 }

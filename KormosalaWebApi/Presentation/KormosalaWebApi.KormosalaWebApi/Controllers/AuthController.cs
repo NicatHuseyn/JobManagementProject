@@ -1,5 +1,7 @@
 ﻿using KormosalaWebApi.Application.Featuers.Commands.UserCommands.LoginUser;
+using KormosalaWebApi.Application.Featuers.Commands.UserCommands.PasswordReset;
 using KormosalaWebApi.Application.Featuers.Commands.UserCommands.RefreshTokenLogin;
+using KormosalaWebApi.Application.Featuers.Commands.UserCommands.VerifyResetToken;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -35,6 +37,20 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
         public async Task<IActionResult> RefreshToken([FromForm]RefreshTokenLoginCommandRequest request)
         {
             var response = await _mediator.Send(request);
+            return Ok(response);
+        }
+
+        [HttpPost("password-reset")]
+        public async Task<IActionResult> ResetPassword([FromBody]PasswordResetCommandRequest request)
+        {
+            PasswordResetCommandResponse response = await _mediator.Send(request);
+            return Ok(response);
+        }
+
+        [HttpPost("verify-reset-token")]
+        public async Task<IActionResult> VerifyResetToken([FromBody]VerifyResetTokenCommandRequest request)
+        {
+            VerifyResetTokenCommandResponse response = await _mediator.Send(request);
             return Ok(response);
         }
     }

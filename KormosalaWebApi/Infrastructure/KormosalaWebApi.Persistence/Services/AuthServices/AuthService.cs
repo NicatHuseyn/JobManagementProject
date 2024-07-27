@@ -1,11 +1,14 @@
 ﻿using Google.Apis.Auth;
 using KormosalaWebApi.Application.Abstractions.Services.AuthServices;
+using KormosalaWebApi.Application.Abstractions.Services.MailServices;
 using KormosalaWebApi.Application.Abstractions.Services.UserServices;
 using KormosalaWebApi.Application.Abstractions.Token;
 using KormosalaWebApi.Application.DTOs.LoginDtos;
 using KormosalaWebApi.Application.DTOs.TokenDtos;
+using KormosalaWebApi.Application.Helpers;
 using KormosalaWebApi.Domain.Entities.Identity;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -24,14 +27,16 @@ namespace KormosalaWebApi.Persistence.Services.AuthServices
         private readonly IConfiguration _configuration;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly IUserService _userService;
+        private readonly IMailService _mailService;
 
-        public AuthService(UserManager<AppUser> userManager, ITokenHandler tokenHandler, IConfiguration configuration, SignInManager<AppUser> signInManager, IUserService userService)
+        public AuthService(UserManager<AppUser> userManager, ITokenHandler tokenHandler, IConfiguration configuration, SignInManager<AppUser> signInManager, IUserService userService, IMailService mailService)
         {
             _userManager = userManager;
             _tokenHandler = tokenHandler;
             _configuration = configuration;
             _signInManager = signInManager;
             _userService = userService;
+            _mailService = mailService;
         }
 
         public async Task<Token> GoogleLoginAsync(string credential)
@@ -141,6 +146,37 @@ namespace KormosalaWebApi.Persistence.Services.AuthServices
                 return token;
             }
             throw new Exception("Not Found User");
+        }
+
+        public async Task PasswordResetAsync(string email)
+        {
+            AppUser user = await _userManager.FindByEmailAsync(email);
+
+            if (user is not null)  
+            {
+                string resetToken = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+                CustomEncoders.UrlEncode(resetToken);
+
+                await _mailService.SendPasswordResetMailAsync(user.Email,user.Id,resetToken);
+            }
+        }
+
+        public async Task<bool> VerifyResetToken(string resetToken, string userId)
+        {
+            AppUser user =  await _userManager.FindByIdAsync(userId);
+
+            if (user is not null)
+            {
+                //byte[] tokenBytes = WebEncoders.Base64UrlDecode(resetToken);
+                //Encoding.UTF8.GetString(tokenBytes);
+
+                CustomEncoders.UrlEncode(resetToken);
+
+                return await _userManager.VerifyUserTokenAsync(user,_userManager.Options.Tokens.PasswordResetTokenProvider, "ResetPassword",resetToken);
+            }
+
+            return false;
         }
     }
 }

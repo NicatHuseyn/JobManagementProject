@@ -8,7 +8,9 @@ namespace KormosalaWebApi.Application.Abstractions.Services.MailServices
 {
     public interface IMailService
     {
-        Task SendMessageAsync(string to, string subject, string body, bool isBodyHtml = true);
-        Task SendMessageAsync(string[] tos, string subject, string body, bool isBodyHtml = true);
+        Task SendMailAsync(string to, string subject, string body, bool isBodyHtml = true);
+        Task SendMailAsync(string[] tos, string subject, string body, bool isBodyHtml = true);
+
+        Task SendPasswordResetMailAsync(string to, int userId, string resetToken);
     }
 }

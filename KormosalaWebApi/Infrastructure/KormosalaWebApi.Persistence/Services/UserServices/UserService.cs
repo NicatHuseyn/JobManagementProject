@@ -1,6 +1,8 @@
 ﻿using KormosalaWebApi.Application.Abstractions.Services.UserServices;
 using KormosalaWebApi.Application.DTOs.UserDtos;
+using KormosalaWebApi.Application.Exceptions;
 using KormosalaWebApi.Application.Featuers.Commands.UserCommands.CreateUser;
+using KormosalaWebApi.Application.Helpers;
 using KormosalaWebApi.Domain.Entities.Identity;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -67,6 +69,23 @@ namespace KormosalaWebApi.Persistence.Services.UserServices
             else
             {
                 throw new Exception("User Not Found");
+            }
+        }
+
+        public async Task UpdatePasswordAsync(string userId, string resetToken, string newPassword)
+        {
+            AppUser user = await _userManager.FindByIdAsync(userId);
+
+            if (user is not null)
+            {
+                resetToken = CustomEncoders.UrlDecode(resetToken);
+                IdentityResult result = await _userManager.ResetPasswordAsync(user, resetToken, newPassword);
+
+                if (result.Succeeded)
+                    await _userManager.UpdateSecurityStampAsync(user);
+                else
+                    throw new PasswordChangeFIeldException();
+                
             }
         }
     }

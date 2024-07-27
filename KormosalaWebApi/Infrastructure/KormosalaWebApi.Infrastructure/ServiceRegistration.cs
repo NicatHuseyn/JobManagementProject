@@ -1,6 +1,8 @@
-﻿using KormosalaWebApi.Application.Abstractions.Services.MailServices;
+﻿using KormosalaWebApi.Application.Abstractions.Services.ConfigurationServices;
+using KormosalaWebApi.Application.Abstractions.Services.MailServices;
 using KormosalaWebApi.Application.Abstractions.Token;
 using KormosalaWebApi.Application.Services.FileService;
+using KormosalaWebApi.Infrastructure.Services.ConfigurationServices;
 using KormosalaWebApi.Infrastructure.Services.FileService;
 using KormosalaWebApi.Infrastructure.Services.MailServices;
 using KormosalaWebApi.Infrastructure.Services.Token;
@@ -23,6 +25,7 @@ namespace KormosalaWebApi.Infrastructure
             services.AddScoped<ITokenHandler, TokenHandler>();
 
             services.AddScoped<IMailService,MailService>();
+            services.AddScoped<IApplicationService, ApplicationService>();
         }
     }
 }

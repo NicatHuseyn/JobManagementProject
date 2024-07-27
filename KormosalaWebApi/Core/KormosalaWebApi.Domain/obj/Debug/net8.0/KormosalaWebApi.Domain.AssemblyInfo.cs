@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KormosalaWebApi.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d175f53684ba4d5ed6f4b636595187e0445f88c5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8defa48c5066fadd1745d79f51fceabd4f32d400")]
 [assembly: System.Reflection.AssemblyProductAttribute("KormosalaWebApi.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KormosalaWebApi.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

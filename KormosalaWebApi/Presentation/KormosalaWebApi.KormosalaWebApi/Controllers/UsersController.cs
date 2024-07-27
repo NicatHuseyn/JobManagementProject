@@ -1,6 +1,7 @@
 ﻿using KormosalaWebApi.Application.Abstractions.Services.MailServices;
 using KormosalaWebApi.Application.Featuers.Commands.UserCommands.CreateUser;
 using KormosalaWebApi.Application.Featuers.Commands.UserCommands.LoginUser;
+using KormosalaWebApi.Application.Featuers.Commands.UserCommands.UpdatePassword;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -44,10 +45,15 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
         [HttpGet]
         public async Task<IActionResult> ExampleMailTest()
         {
-            await _mailService.SendMessageAsync("nicat5075@gmail.com","Test Messag", "Salam Menim Adim Nicadir");
+            await _mailService.SendMailAsync("nicat5075@gmail.com","Test Messag", "Salam Menim Adim Nicadir");
             return Ok();
         }
 
-        
+        [HttpPost("update-password")]
+        public async Task<IActionResult> UpdatePassword([FromBody] UpdatePasswordCommandRequest request)
+        {
+            var response = await _mediator.Send(request);
+            return Ok(response);
+        }
     }
 }

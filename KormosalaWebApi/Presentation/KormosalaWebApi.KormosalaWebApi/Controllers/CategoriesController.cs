@@ -1,4 +1,7 @@
-﻿using KormosalaWebApi.Application.Featuers.Commands.CategoryCommands.CreateCategory;
+﻿using KormosalaWebApi.Application.Consts;
+using KormosalaWebApi.Application.CustomAttributes;
+using KormosalaWebApi.Application.Enums;
+using KormosalaWebApi.Application.Featuers.Commands.CategoryCommands.CreateCategory;
 using KormosalaWebApi.Application.Featuers.Commands.CategoryCommands.RemoveCategroy;
 using KormosalaWebApi.Application.Featuers.Commands.CategoryCommands.UpdateCategory;
 using KormosalaWebApi.Application.Featuers.Queries.CategoryQueries.GetAllCategory;
@@ -27,6 +30,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
         }
 
         [HttpGet]
+        [AuthorizeDefinitionAttribute(Menu = AuthorizeDefinitionConstants.Categories, ActionType = ActionType.Reading, Definition = "Get Category Items")]
         public async Task<IActionResult> GetAllData([FromQuery] GetAllCategoryQueryRequest request)
         {
             if (!ModelState.IsValid)
@@ -45,6 +49,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
         }
 
         [HttpGet("{Id}")]
+        [AuthorizeDefinitionAttribute(Menu = AuthorizeDefinitionConstants.Categories, ActionType = ActionType.Reading, Definition = "Get Category With Id Item")]
         public async Task<IActionResult> GetByIdData([FromRoute] GetByIdCategoryQueryRequest request)
         {
             if (!ModelState.IsValid)
@@ -72,6 +77,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
         }
 
         [HttpPost]
+        [AuthorizeDefinitionAttribute(Menu = AuthorizeDefinitionConstants.Categories, ActionType = ActionType.Writing, Definition = "Create Categort")]
         public async Task<IActionResult> CreateData([FromBody] CreateCategoryCommandRequest request)
         {
             if (!ModelState.IsValid)
@@ -99,6 +105,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
         }
 
         [HttpPut]
+        [AuthorizeDefinitionAttribute(Menu = AuthorizeDefinitionConstants.Categories, ActionType = ActionType.Updating, Definition = "Update Category")]
         public async Task<IActionResult> UpdateData([FromBody] UpdateCategoryCommandRequest request)
         {
             if (!ModelState.IsValid)
@@ -127,6 +134,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
 
 
         [HttpDelete("{Id}")]
+        [AuthorizeDefinitionAttribute(Menu = AuthorizeDefinitionConstants.Categories, ActionType = ActionType.Deleting, Definition = "Delete Category")]
         public async Task<IActionResult> RemoveData([FromRoute] RemoveCategoryCommandRequest request)
         {
             if (!ModelState.IsValid)

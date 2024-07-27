@@ -8,6 +8,9 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using KormosalaWebApi.Application.Consts;
+using KormosalaWebApi.Application.CustomAttributes;
+using KormosalaWebApi.Application.Enums;
 
 namespace KormosalaWebApi.KormosalaWebApi.Controllers
 {
@@ -24,6 +27,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
         }
 
         [HttpGet]
+        [AuthorizeDefinitionAttribute(Menu = AuthorizeDefinitionConstants.Companies, ActionType = ActionType.Reading, Definition = "Get Company Items")]
         public async Task<IActionResult> GetAllData([FromQuery] GetAllCompanyQueryRequest request)
         {
             if (!ModelState.IsValid)
@@ -42,6 +46,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
         }
 
         [HttpGet("{Id}")]
+        [AuthorizeDefinitionAttribute(Menu = AuthorizeDefinitionConstants.Companies, ActionType = ActionType.Reading, Definition = "Get Company By Id Item")]
         public async Task<IActionResult> GetByIdData([FromRoute] GetByIdCompanyQueryRequest request)
         {
             if (!ModelState.IsValid)
@@ -69,6 +74,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
         }
 
         [HttpPost]
+        [AuthorizeDefinitionAttribute(Menu = AuthorizeDefinitionConstants.Companies, ActionType = ActionType.Writing, Definition = "Create Company")]
         public async Task<IActionResult> CreateData([FromBody] CreateCompanyCommandRequest request)
         {
             if (!ModelState.IsValid)
@@ -96,6 +102,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
         }
 
         [HttpPut]
+        [AuthorizeDefinitionAttribute(Menu = AuthorizeDefinitionConstants.Companies, ActionType = ActionType.Updating, Definition = "Update Company")]
         public async Task<IActionResult> UpdateData([FromBody] UpdateCompanyCommandRequest request)
         {
             if (!ModelState.IsValid)
@@ -124,6 +131,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
 
 
         [HttpDelete("{Id}")]
+        [AuthorizeDefinitionAttribute(Menu = AuthorizeDefinitionConstants.Companies, ActionType = ActionType.Deleting, Definition = "Delete Company")]
         public async Task<IActionResult> RemoveData([FromRoute] RemoveCompanyCommandRequest request)
         {
             if (!ModelState.IsValid)

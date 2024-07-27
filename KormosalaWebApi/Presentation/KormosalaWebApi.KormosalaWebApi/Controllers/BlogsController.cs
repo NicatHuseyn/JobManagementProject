@@ -1,4 +1,7 @@
-﻿using KormosalaWebApi.Application.Featuers.Commands.BlogCommands.CreateBlog;
+﻿using KormosalaWebApi.Application.Consts;
+using KormosalaWebApi.Application.CustomAttributes;
+using KormosalaWebApi.Application.Enums;
+using KormosalaWebApi.Application.Featuers.Commands.BlogCommands.CreateBlog;
 using KormosalaWebApi.Application.Featuers.Commands.BlogCommands.RemoveBlog;
 using KormosalaWebApi.Application.Featuers.Commands.BlogCommands.UpdateBlog;
 using KormosalaWebApi.Application.Featuers.Queries.BlogQueries.GetAllBlog;
@@ -23,6 +26,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
         }
 
         [HttpGet]
+        [AuthorizeDefinitionAttribute(Menu = AuthorizeDefinitionConstants.Blogs, ActionType = ActionType.Reading, Definition = "Get Blogs Items")]
         public async Task<IActionResult> GetAllData([FromQuery] GetAllBlogQueryRequest request)
         {
             if (!ModelState.IsValid)
@@ -39,6 +43,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
 
             return Ok(responses);
         }
+
 
         [HttpGet("{Id}")]
         public async Task<IActionResult> GetByIdData([FromRoute] GetByIdBlogQueryRequest request)
@@ -68,6 +73,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
         }
 
         [HttpPost]
+        [AuthorizeDefinitionAttribute(Menu = AuthorizeDefinitionConstants.Blogs, ActionType = ActionType.Writing, Definition = "Add Item To Blogs")]
         public async Task<IActionResult> CreateData([FromBody] CreateBlogCommandRequest request)
         {
             if (!ModelState.IsValid)
@@ -95,6 +101,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
         }
 
         [HttpPut]
+        [AuthorizeDefinitionAttribute(Menu = AuthorizeDefinitionConstants.Blogs, ActionType = ActionType.Updating, Definition = "Update Blogs")]
         public async Task<IActionResult> UpdateData([FromBody] UpdateBlogCommandRequest request)
         {
             if (!ModelState.IsValid)
@@ -123,6 +130,7 @@ namespace KormosalaWebApi.KormosalaWebApi.Controllers
 
 
         [HttpDelete("{Id}")]
+        [AuthorizeDefinitionAttribute(Menu = AuthorizeDefinitionConstants.Blogs, ActionType = ActionType.Deleting, Definition = "Remove Blog Item")]
         public async Task<IActionResult> RemoveData([FromRoute] RemoveBlogCommandRequest request)
         {
             if (!ModelState.IsValid)

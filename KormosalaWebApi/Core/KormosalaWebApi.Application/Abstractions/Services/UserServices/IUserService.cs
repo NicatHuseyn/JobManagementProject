@@ -12,5 +12,7 @@ namespace KormosalaWebApi.Application.Abstractions.Services.UserServices
     {
         Task<CreateUserResponseDto> CreateAsync(CreateUserDto createUser);
         Task UpdateRefreshTokenAsync(string refreshToken, AppUser user, DateTime accessTokenDate, int addOnAccessTokenDate);
+
+        Task UpdatePasswordAsync(string userId, string resetToken, string newPassword);
     }
 }

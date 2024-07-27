@@ -23,6 +23,7 @@ using KormosalaWebApi.Persistence.Repositories.LocationRepository;
 using KormosalaWebApi.Persistence.Services.AuthServices;
 using KormosalaWebApi.Persistence.Services.IndustryServices;
 using KormosalaWebApi.Persistence.Services.UserServices;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -47,7 +48,7 @@ namespace KormosalaWebApi.Persistence
                 options.Password.RequireUppercase = false;
                 options.Password.RequireDigit = false;
             }
-         ).AddEntityFrameworkStores<KormosalaDbContext>();
+         ).AddEntityFrameworkStores<KormosalaDbContext>().AddDefaultTokenProviders();
 
             services.AddScoped<IBlogRepository,BlogRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
